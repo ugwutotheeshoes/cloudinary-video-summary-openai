@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
       );
     } else {
 
-      return NextResponse.json({ available: false }, { status: 200 });
+      return NextResponse.json({ available: false }, { status: 400 });
     }
   } catch (error: any) {
     throw new Error(error);
