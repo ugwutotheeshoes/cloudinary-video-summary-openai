@@ -26,11 +26,12 @@ export async function POST(req: Request, res: NextResponse) {
         resource_type: 'video',
         raw_convert: 'google_speech',
       })
+    const videoUrl = uploadResult.secure_url;
     const transcriptFileUrl = `https://res.cloudinary.com/${cloud_name}/raw/upload/v${uploadResult.version + 1
       }/${uploadResult.public_id}.transcript`;
 
     return NextResponse.json(
-      { uploadResult, transcriptFileUrl },
+      { uploadResult, transcriptFileUrl, videoUrl },
       { status: 200 }
     );
 
